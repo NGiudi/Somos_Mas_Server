@@ -1,10 +1,9 @@
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
 
 const { NO_DATA_ENCRYPT_ERROR, CREATE_TOKEN_SUCCESS, INVALID_TOKEN_ERROR, DECRYPT_TOKEN_SUCCESS } = require('../../const/responses');
 
-const encryptToken = (payload) => {
-  if (!payload) {
+const encryptToken = (payload, key) => {
+  if (Object.keys(payload).length === 0) {
     /* no data received.*/
     return ({
       status: 204,
@@ -12,7 +11,7 @@ const encryptToken = (payload) => {
     });
   }
 
-  const token = jwt.sign(payload, process.env.TOKEN_KEY);
+  const token = jwt.sign(payload, key);
   /* success token create*/
   return({
     status: 200,
@@ -22,7 +21,7 @@ const encryptToken = (payload) => {
 }
 
 const decryptToken = (token) => {
-  return jwt.verify (token, process.env.TOKEN_KEY, (err, decoded) => {
+  return jwt.verify (token, key , (err, decoded) => {
     if (err) {
       /* decrypt error. */
       return ({
