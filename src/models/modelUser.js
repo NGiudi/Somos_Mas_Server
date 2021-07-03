@@ -5,14 +5,13 @@ module.exports = (sequelize, type) => {
     id: {
       type: type.INTEGER,
       primaryKey:true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     nickname: {
       type: type.STRING
     },
     name: {
-      type: type.STRING,
-      notNull: true,
+      type: type.STRING
     },
     lastname: {
       type: type.STRING
@@ -21,7 +20,10 @@ module.exports = (sequelize, type) => {
       type: type.STRING
     },
     password: {
-      type: type.STRING,
+      type: type.STRING
+    },
+    imageURL: {
+      type: type.STRING
     }
   },
   {

@@ -1,1 +1,10 @@
-exports.USERS_TABLE = 'users';
+exports.ORGANIZATION_TABLE = "organization";
+exports.TESTIMONIALS_TABLE = "testimonials";
+exports.ACTIVITIES_TABLE = "activities";
+exports.CATEGORIES_TABLE = "categories";
+exports.CONTACTS_TABLE = "contacts";
+exports.MEMBERS_TABLE = "members";
+exports.IMAGES_TABLE = "images";
+exports.USERS_TABLE = "users";
+exports.ROLES_TABLE = "roles";
+exports.NEWS_TABLE = "news";
