@@ -1,6 +1,6 @@
 const { DB_REQUEST_COMPLETED, DB_REQUEST_ERROR } = require('../const/responses');
 
-const getQuery = async (model, id) => {
+const deleteQuery = async (model, id) => {
   try {
     const data = await model.destroy({
       where: { id },
@@ -10,7 +10,7 @@ const getQuery = async (model, id) => {
     /* no content to delete. */
     if (data === 0) {
       return ({
-        status: 204,
+        status: 404,
         message: DB_REQUEST_COMPLETED,
       });
     }
@@ -30,4 +30,4 @@ const getQuery = async (model, id) => {
   }
 }
 
-module.exports = getQuery;
+module.exports = deleteQuery;

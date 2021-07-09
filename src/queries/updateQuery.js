@@ -1,6 +1,6 @@
 const { DB_REQUEST_COMPLETED, DB_REQUEST_ERROR } = require('../const/responses');
 
-const getQuery = async (model, id, payload) => {
+const updateQuery = async (model, id, payload) => {
   try {
     const data = await model.update(payload, { where: { id } });
     
@@ -27,4 +27,4 @@ const getQuery = async (model, id, payload) => {
   }
 }
 
-module.exports = getQuery;
+module.exports = updateQuery;
