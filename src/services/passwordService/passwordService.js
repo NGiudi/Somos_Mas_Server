@@ -19,7 +19,7 @@ const passwordEncrypt = async ( password ) => {
 }
 
 const passwordCompare = async( password, passwordEncrypt) => {
-  if (!(password && passwordEncrypt)){
+  if (!password || !passwordEncrypt){
     return ({
       status: 204,
       message: NO_PASSWORD_OR_HASH_ERROR
