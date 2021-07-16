@@ -20,7 +20,7 @@ const encryptToken = (payload, key) => {
   });
 }
 
-const decryptToken = (token) => {
+const decryptToken = (token, key) => {
   return jwt.verify (token, key , (err, decoded) => {
     if (err) {
       /* decrypt error. */
