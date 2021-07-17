@@ -1,10 +1,7 @@
 require('dotenv').config();
 
-/* import model. */
-const { User } = require('../models/connectionsModel');
-
 /* imports queries. */
-const getOneByEmailQuery = require('../queries/getOneByEmail');
+const getOneUserByEmailQuery = require('../queries/getOneUserByEmail');
 
 /*imports services */
 const { passwordCompare } = require('../services/passwordService/passwordService');
@@ -24,7 +21,7 @@ const loginService = async (req, res) => {
     });
   }
     
-  const user = await getOneByEmailQuery(User, email);
+  const user = await getOneUserByEmailQuery(email);
   
   if (user.status === 200) {
     const compare = await passwordCompare(password, user.data.password);

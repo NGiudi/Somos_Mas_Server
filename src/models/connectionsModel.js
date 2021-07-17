@@ -13,17 +13,32 @@ const roleModel = require('./modelRole');
 const userModel = require('./modelUser');
 const newModel = require('./modelNew');
 
-/* assosiations  */
+/* models connections */
+const Organization = organizationModel(sequelize, Sequelize);
+const Testimonial = testimonialModel(sequelize, Sequelize);
+const Activity = activityModel(sequelize, Sequelize);
+const Category = categoryModel(sequelize, Sequelize);
+const Contact = contactModel(sequelize, Sequelize);
+const Member = memberModel(sequelize, Sequelize);
+const Image = imageModel(sequelize, Sequelize);
+const Role = roleModel(sequelize, Sequelize);
+const User = userModel(sequelize, Sequelize);
+const New = newModel(sequelize, Sequelize);
 
+/* assosiations  */
+User.belongsTo(Role, {foreignKey: 'roleId'})
+Role.hasMany(User);
 
 /* models connections exports */
-exports.Organization = organizationModel(sequelize, Sequelize);
-exports.Testimonial = testimonialModel(sequelize, Sequelize);
-exports.Activity = activityModel(sequelize, Sequelize);
-exports.Category = categoryModel(sequelize, Sequelize);
-exports.Contact = contactModel(sequelize, Sequelize);
-exports.Member = memberModel(sequelize, Sequelize);
-exports.Image = imageModel(sequelize, Sequelize);
-exports.Role = roleModel(sequelize, Sequelize);
-exports.User = userModel(sequelize, Sequelize);
-exports.New = newModel(sequelize, Sequelize);
+module.exports = {
+  Organization,
+  Testimonial,
+  Activity,
+  Category,
+  Contact,
+  Member,
+  Image,
+  User, 
+  Role,
+  New
+};

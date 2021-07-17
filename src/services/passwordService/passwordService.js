@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 
 const { NO_PASSWORD_ERROR, PASSWORD_ENCRYPT_SUCCESS, NO_PASSWORD_OR_HASH_ERROR, COMPARE_PASSWORD_SUCCESS, COMPARE_PASSWORD_ERROR } = require('../../const/responses');
 
-const passwordEncrypt = async ( password ) => {
+const passwordEncrypt = async (password) => {
   if (!password) {
     return ({
       status: 204,

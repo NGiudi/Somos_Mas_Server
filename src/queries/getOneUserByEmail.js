@@ -1,10 +1,13 @@
 const { DB_REQUEST_COMPLETED, DB_REQUEST_ERROR, INVALID_MAIL_OR_PASSWORD } = require('../const/responses');
 
-const getOneByEmailQuery = async (model, email) => {
+const { Role, User } = require('../models/connectionsModel');
+
+const getOneUserByEmailQuery = async (email) => {
   try {
-    const data = await model.findOne ({
+    const data = await User.findOne ({
       where: { email },
-      attributes: { exclude: ['createdAt', 'updatedAt', 'deletedAt'] }
+      attributes: { exclude: ['createdAt', 'updatedAt', 'deletedAt'] },
+      include: {model: Role, attributes: ['role']}
     });
     
     /* no content. */
@@ -31,4 +34,4 @@ const getOneByEmailQuery = async (model, email) => {
   }
 }
 
-module.exports = getOneByEmailQuery; 
+module.exports = getOneUserByEmailQuery; 
