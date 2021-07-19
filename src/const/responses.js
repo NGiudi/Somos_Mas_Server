@@ -5,6 +5,9 @@ exports.DB_REQUEST_COMPLETED = "Request completed.";
 // login messages.
 exports.INVALID_MAIL_OR_PASSWORD = "Email or Password invalid."
 
+// register messages.
+exports.USER_EXIST = "Existe un usuario registrado con este mail."
+
 // users messages.
 exports.USER_LOGIN_ERROR = "No user login.";
 

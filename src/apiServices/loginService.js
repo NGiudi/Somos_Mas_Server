@@ -28,9 +28,7 @@ const loginService = async (req, res) => {
     
     // success login.
     if (compare.status === 200){
-      delete user.data.dataValues.password;
-      
-      const token = await encryptToken(user.data.dataValues, process.env.TOKEN_KEY);
+      const token = await encryptToken(user.data.dataValues.email, process.env.TOKEN_KEY);
       
       return res.json({
         status: 200,
