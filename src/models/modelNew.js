@@ -15,6 +15,9 @@ module.exports = (sequelize, type) => {
     },
     imageURL: {
       type: type.STRING
+    },
+    imageAlt: {
+      type: type.STRING
     }
     /* the category is obtained from the association. */
   },

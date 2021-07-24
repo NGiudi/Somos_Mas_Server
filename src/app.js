@@ -9,6 +9,7 @@ const logger = require('./utils/logger');
 // require routes.
 const activitiesRoutes = require('./routes/activitiesRoutes');
 const loginRoutes = require('./routes/loginRoutes');
+const homeRoutes = require('./routes/homeRoutes');
 const indexRoute = require('./routes/indexRoute');
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // routes in use.
 app.use('/', indexRoute);
+app.use('/home', homeRoutes);
 app.use('/activities', activitiesRoutes);
 app.use('/auth', loginRoutes);
 

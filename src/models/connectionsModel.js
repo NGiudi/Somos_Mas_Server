@@ -26,8 +26,11 @@ const User = userModel(sequelize, Sequelize);
 const New = newModel(sequelize, Sequelize);
 
 /* assosiations  */
-User.belongsTo(Role, {foreignKey: 'roleId'})
+User.belongsTo(Role, {foreignKey: 'roleId'});
 Role.hasMany(User);
+
+New.belongsTo(Category, {foreignKey: 'categoryId'});
+Category.hasMany(New);
 
 /* models connections exports */
 module.exports = {
