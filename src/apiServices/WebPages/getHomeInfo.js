@@ -8,6 +8,11 @@ const getHomeInfo = async (req, res) => {
   /* set information of the news cards. */
   const news = await getLastNews();
 
+  if (news.status !== 200) {
+    /* error ocurred. */
+    return res.json(news);
+  }
+  
   news.data.map(card => {
     card.dataValues.date = formatDate(card.dataValues.createdAt);
   });

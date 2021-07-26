@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const cors = require("cors");
 require('dotenv').config();
 
-/* locals configurations. */
+/* local configurations. */
 const logger = require('./utils/logger');
 
 /* require routes. */

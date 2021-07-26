@@ -12,6 +12,10 @@ const getNews = async (req, res) => {
 
   const news = await getOnePageNews(page, ROWS_PER_PAGE);
 
+  if (news.status !== 200){
+    return res.json(news);
+  }
+
   news.data.rows.map(card => {
     card.dataValues.date = formatDate(card.dataValues.createdAt);
   });

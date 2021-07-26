@@ -2,18 +2,16 @@ const { DB_REQUEST_COMPLETED, DB_REQUEST_ERROR } = require('../../const/response
 
 const { Category, New } = require('../../models/connectionsModel');
 
-const getOnePageNews = async (page, rowsPerPage) => {
-  const offset = (page - 1) * rowsPerPage;
-  
+const getOneQuery = async (id) => {
   try {
-    const data = await New.findAndCountAll ({
-      attributes: { exclude: ['updatedAt', 'deletedAt'] },
+    const data = await New.findOne ({
+      attributes: { exclude: ['createdAt', 'updatedAt', 'deletedAt'] },
       include: {model: Category, attributes: ['name']},
-      offset: offset,
-      limit: rowsPerPage
+      where: { id }
     });
+    
     /* no content. */
-    if (data.count === 0) {
+    if (!data) {
       return ({
         status: 204,
         message: DB_REQUEST_COMPLETED 
@@ -36,4 +34,4 @@ const getOnePageNews = async (page, rowsPerPage) => {
   }
 }
 
-module.exports = getOnePageNews;
+module.exports = getOneQuery; 
