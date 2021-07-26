@@ -13,7 +13,7 @@ const roleModel = require('./modelRole');
 const userModel = require('./modelUser');
 const newModel = require('./modelNew');
 
-/* models connections */
+/* models connections. */
 const Organization = organizationModel(sequelize, Sequelize);
 const Testimonial = testimonialModel(sequelize, Sequelize);
 const Activity = activityModel(sequelize, Sequelize);
@@ -25,14 +25,14 @@ const Role = roleModel(sequelize, Sequelize);
 const User = userModel(sequelize, Sequelize);
 const New = newModel(sequelize, Sequelize);
 
-/* assosiations  */
+/* assosiations.  */
 User.belongsTo(Role, {foreignKey: 'roleId'});
 Role.hasMany(User);
 
 New.belongsTo(Category, {foreignKey: 'categoryId'});
 Category.hasMany(New);
 
-/* models connections exports */
+/* models connections exports. */
 module.exports = {
   Organization,
   Testimonial,

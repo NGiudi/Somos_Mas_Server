@@ -1,7 +1,7 @@
-const { DB_REQUEST_COMPLETED, DB_REQUEST_ERROR } = require('../const/responses')
+const { DB_REQUEST_COMPLETED, DB_REQUEST_ERROR } = require('../const/responses');
 
 const createQuery = async (model, payload) => {
-	try{
+	try {
 		await model.create(payload);
 		/* success create */
 		return ({

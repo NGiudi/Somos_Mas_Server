@@ -6,9 +6,8 @@ const getOneUserByEmailQuery = require('../queries/getOneUserByEmail');
 const { registerService } = require('../apiServices/registerService');
 const { loginService } = require('../apiServices/loginService');
 
-router.post('/login', loginService);
-
 router.post('/register', registerService);
+router.post('/login', loginService);
 
 router.get('/me', async (req, res) => {
   const token = req.headers.authorization;

@@ -3,14 +3,15 @@ const morgan = require('morgan');
 const cors = require("cors");
 require('dotenv').config();
 
-// locals configurations.
+/* locals configurations. */
 const logger = require('./utils/logger');
 
-// require routes.
+/* require routes. */
 const activitiesRoutes = require('./routes/activitiesRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 const indexRoute = require('./routes/indexRoute');
+const newsRoutes = require('./routes/newsRoutes');
 
 const app = express();
 
@@ -19,13 +20,14 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// routes in use.
-app.use('/', indexRoute);
-app.use('/home', homeRoutes);
+/* routes in use. */
 app.use('/activities', activitiesRoutes);
 app.use('/auth', loginRoutes);
+app.use('/news', newsRoutes);
+app.use('/home', homeRoutes);
+app.use('/', indexRoute);
 
-// init listen server in asigned port.
+/* init listen server in asigned port. */
 const port = process.env.PORT || 3000;
 
 app.listen ( port, () => {

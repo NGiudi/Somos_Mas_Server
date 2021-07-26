@@ -1,13 +1,13 @@
 require('dotenv').config();
 
-/* imports queries. */
+/* import queries. */
 const getOneUserByEmailQuery = require('../queries/getOneUserByEmail');
 
-/*imports services */
+/*import services */
 const { passwordCompare } = require('../services/passwordService/passwordService');
 const { encryptToken } = require('../services/tokenService/tokenService');
 
-/*imports constants*/
+/*import constants */
 const { DB_REQUEST_COMPLETED, INVALID_MAIL_OR_PASSWORD } = require('../const/responses');
 
 const loginService = async (req, res) => {
@@ -42,4 +42,4 @@ const loginService = async (req, res) => {
   return res.json(user);
 }
 
-module.exports = { loginService }
+module.exports = { loginService };

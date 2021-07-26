@@ -13,7 +13,7 @@ module.exports = createLogger({
       filename: `${__dirname}/../logs/log-server.log`
     }),
     new transports.Console({
-      level: 'debug',
+      level: 'debug'
     })
   ]
-})
+});

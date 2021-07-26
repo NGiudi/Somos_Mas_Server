@@ -1,11 +1,11 @@
 require('dotenv').config();
 
-const Sequilize = require ('sequelize');
+const Sequilize = require('sequelize');
 
-// locals configurations.
+/* locals configurations. */
 const logger = require('../utils/logger');
 
-const sequilize = new Sequilize (process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+const sequilize = new Sequilize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
     host: process.env.DB_HOST,
     dialect: 'mysql',
     define: {

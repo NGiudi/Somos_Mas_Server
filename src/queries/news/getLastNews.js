@@ -1,10 +1,10 @@
-const { DB_REQUEST_COMPLETED, DB_REQUEST_ERROR } = require('../const/responses');
+const { DB_REQUEST_COMPLETED, DB_REQUEST_ERROR } = require('../../const/responses');
 
-const { Category } = require('../models/connectionsModel');
+const { Category, New } = require('../../models/connectionsModel');
 
-const getLastNews = async (model) => {
+const getLastNews = async () => {
   try {
-    const data = await model.findAll({
+    const data = await New.findAll({
       attributes: { exclude: ['updatedAt', 'deletedAt'] },
       include: {model: Category, attributes: ['name']},
       order: [['createdAt', 'DESC']],

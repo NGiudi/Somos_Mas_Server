@@ -1,15 +1,15 @@
 require('dotenv').config();
 
-/* imports queries. */
+/* import queries. */
 const getOneUserByEmailQuery = require('../queries/getOneUserByEmail');
 const { User } = require('../models/connectionsModel');
 const createQuery = require('../queries/createQuery');
 
-/*imports services */
+/*import services */
 const { passwordEncrypt } = require('../services/passwordService/passwordService');
 const { encryptToken } = require('../services/tokenService/tokenService');
 
-/*imports constants*/
+/*import constants*/
 const { DB_REQUEST_COMPLETED, USER_EXIST } = require('../const/responses');
 const { USER_ID } = require('../const/numbers');
 
@@ -33,7 +33,6 @@ const registerService = async (req, res) => {
         data: token.data
       });
     }
-    console.log("paso");
     return res.json(data);
   }
   else if (existUser.status === 200) {
@@ -45,4 +44,4 @@ const registerService = async (req, res) => {
   return res.json(existUser);
 }
 
-module.exports = { registerService }
+module.exports = { registerService };

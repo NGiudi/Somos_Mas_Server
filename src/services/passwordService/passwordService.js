@@ -19,7 +19,7 @@ const passwordEncrypt = async (password) => {
 }
 
 const passwordCompare = async( password, passwordEncrypt) => {
-  if (!password || !passwordEncrypt){
+  if (!password || !passwordEncrypt) {
     return ({
       status: 204,
       message: NO_PASSWORD_OR_HASH_ERROR
@@ -28,7 +28,7 @@ const passwordCompare = async( password, passwordEncrypt) => {
 
   const passwordOk = await bcrypt.compare(password, passwordEncrypt);
   
-  if (passwordOk){
+  if (passwordOk) {
     return ({
       status: 200,
       message: COMPARE_PASSWORD_SUCCESS
@@ -39,7 +39,6 @@ const passwordCompare = async( password, passwordEncrypt) => {
       message: COMPARE_PASSWORD_ERROR
     });
   }
-  
 }
 
-module.exports = { passwordEncrypt, passwordCompare }
+module.exports = { passwordEncrypt, passwordCompare };

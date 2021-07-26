@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-/* import model. */
+/* import models. */
 const { Activity } = require('../models/connectionsModel');
 
 /* import queries. */
