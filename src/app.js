@@ -7,6 +7,7 @@ require('dotenv').config();
 const logger = require('./utils/logger');
 
 /* require routes. */
+const organizationsRoutes = require('./routes/organizationRoutes');
 const activitiesRoutes = require('./routes/activitiesRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const homeRoutes = require('./routes/homeRoutes');
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 /* routes in use. */
+app.use('/organizations', organizationsRoutes);
 app.use('/activities', activitiesRoutes);
 app.use('/auth', loginRoutes);
 app.use('/news', newsRoutes);
