@@ -9,6 +9,7 @@ const logger = require('./utils/logger');
 /* require routes. */
 const organizationsRoutes = require('./routes/organizationRoutes');
 const activitiesRoutes = require('./routes/activitiesRoutes');
+const aboutUsRoutes = require('./routes/aboutUsRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 const indexRoute = require('./routes/indexRoute');
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 /* routes in use. */
 app.use('/organizations', organizationsRoutes);
 app.use('/activities', activitiesRoutes);
+app.use('/about-us', aboutUsRoutes);
 app.use('/auth', loginRoutes);
 app.use('/news', newsRoutes);
 app.use('/home', homeRoutes);

@@ -10,10 +10,16 @@ module.exports = (sequelize, type) => {
     name: {
       type: type.STRING
     },
-    content: {
-      type: type.TEXT
+    job: {
+      type: type.STRING
+    },
+    linkedinURL:{
+      type: type.STRING
     },
     imageURL: {
+      type: type.STRING
+    },
+    imageAlt: {
       type: type.STRING
     }
   },
