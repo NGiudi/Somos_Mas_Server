@@ -7,16 +7,16 @@ module.exports = (Sequelize, type) => {
       primaryKey: true,
       autoIncrement: true
     },
-    name: {
-      type: type.STRING
-    },
-    logoURL: {
-      type: type.STRING
-    },
     phone: {
       type: type.STRING
     },
     adress: {
+      type: type.STRING
+    },
+    city: {
+      type: type.STRING
+    },
+    email: {
       type: type.STRING
     },
     facebookURL: {
